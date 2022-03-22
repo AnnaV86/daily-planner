@@ -1,6 +1,15 @@
-.search-input {
-  width: auto;
-  flex-grow: 1;
+.search-panel {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+}
+
+.search-panel__input {
+  margin: 0;
+  width: 350px;
+  height: 30px;
+  background-color: rgb(255, 242, 244);
+  border: 2px solid rgb(92, 172, 168);
+  border-radius: 3px;
   margin-right: 3px;
-  margin: 3px;
 }

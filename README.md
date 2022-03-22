@@ -1,1 +1,1 @@
-Todo Application
+Daily planner

@@ -1,12 +1,15 @@
 .app-header {
-  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.app-header h1 {
-  flex-grow: 1;
+.app-header__header {
+  color: palevioletred;
 }
 
-.app-header h2 {
-  font-size: 1.2rem;
-  color: grey;
+.app-header__ready {
+  color: rgb(28, 182, 182);
+  margin-top: -20px;
 }
