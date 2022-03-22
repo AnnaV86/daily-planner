@@ -14,7 +14,7 @@ const Todo = ({ todo, onDeleteTodo, onImportantTodo, onDoneTodo }) => {
 
   return (
     <div className='todo'>
-      <span className={classSpan} onClick={() => onDoneTodo(todo.id)}>
+      <span className={classSpan} onClick={() => onDoneTodo(todo, todo.id)}>
         {todo.label}
       </span>
       <button
@@ -23,7 +23,10 @@ const Todo = ({ todo, onDeleteTodo, onImportantTodo, onDoneTodo }) => {
       >
         Удалить
       </button>
-      <button className={classBtn} onClick={() => onImportantTodo(todo.id)}>
+      <button
+        className={classBtn}
+        onClick={() => onImportantTodo(todo, todo.id)}
+      >
         Важное
       </button>
     </div>
