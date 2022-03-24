@@ -1,12 +1,12 @@
 .new-todo {
   display: flex;
   justify-content: center;
-  width: 400px;
+  width: 650px;
 }
 
 .new-todo__input {
   margin: 0;
-  width: 350px;
+  width: 650px;
   height: 30px;
   background-color: rgb(255, 242, 244);
   border: 2px solid rgb(92, 172, 168);

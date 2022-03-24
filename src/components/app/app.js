@@ -65,6 +65,12 @@ export const App = () => {
     setTodo(filteredTodoList);
   };
 
+  const onSaveEditing = async () => {
+    const newTodoList = await getTodoFetch();
+
+    setTodo(newTodoList);
+  };
+
   const onClickAll = async (e) => {
     const newTodoList = await getTodoFetch();
     const filter = e.target.innerText;
@@ -96,6 +102,7 @@ export const App = () => {
         onDeleteTodo={onDeleteTodo}
         onImportantTodo={onImportantTodo}
         onDoneTodo={onDoneTodo}
+        onSaveEditing={onSaveEditing}
       />
       <AddNewTodo addTodo={addTodo} />
     </div>
