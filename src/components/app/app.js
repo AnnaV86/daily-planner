@@ -13,9 +13,21 @@ import {
 } from '../api/dailyPlanner';
 
 import './app.css';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  incrementAction,
+  getTodoFetchThunk,
+  decrementAction,
+  incrementByAmountAction,
+} from '../../store/actions';
+import { counterValue } from '../../selectors/counterSelectors';
 
 export const App = () => {
-  const [todos, setTodo] = useState([]);
+  const valueState = useSelector(counterValue);
+  const todosState = useSelector((store) => store.todoReducer.todo);
+  const dispatch = useDispatch();
+  const [todos, setTodo] = useState(todosState);
+  const [number, setNumber] = useState('');
 
   const onDeleteTodo = async (id) => {
     await deleteTodoFetch(id);
@@ -71,6 +83,22 @@ export const App = () => {
     setTodo(newTodoList);
   };
 
+  const onClickIncrement = () => {
+    dispatch(incrementAction());
+  };
+
+  const onClickDecrement = () => {
+    dispatch(decrementAction());
+  };
+
+  const onChangeInput = (evt) => {
+    setNumber(evt.target.value);
+  };
+
+  const onClickIncrementByAmount = () => {
+    dispatch(incrementByAmountAction(number));
+  };
+
   const onClickAll = async (e) => {
     const newTodoList = await getTodoFetch();
     const filter = e.target.innerText;
@@ -87,11 +115,12 @@ export const App = () => {
   };
 
   useEffect(() => {
-    (async () => {
-      const response = await getTodoFetch();
-      setTodo(response);
-    })();
+    dispatch(getTodoFetchThunk());
   }, []);
+
+  useEffect(() => {
+    setTodo(todosState);
+  }, [todosState]);
 
   return (
     <div>
@@ -105,6 +134,21 @@ export const App = () => {
         onSaveEditing={onSaveEditing}
       />
       <AddNewTodo addTodo={addTodo} />
+      счётчик: {valueState}
+      <button type='button' onClick={onClickIncrement}>
+        +
+      </button>
+      <button type='button' onClick={onClickDecrement}>
+        -
+      </button>
+      <input
+        type='number'
+        placeholder='Введите число'
+        onChange={onChangeInput}
+      />
+      <button type='button' onClick={onClickIncrementByAmount}>
+        Прибавить
+      </button>
     </div>
   );
 };

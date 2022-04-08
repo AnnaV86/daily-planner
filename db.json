@@ -1,26 +1,38 @@
 {
   "dailyPlanner": [
     {
-      "id": "2",
-      "label": "Позавтракать",
-      "important": false,
-      "done": true
-    },
-    {
-      "id": "5ELXybbGcsioEWYzruM0C",
-      "label": "Одеться",
-      "important": false,
-      "done": true
-    },
-    {
       "id": "KJ2tbiVa4dr7HaB14oVeY",
       "label": "Улыбнуться",
       "important": false,
       "done": true
     },
     {
-      "id": "brl_74KoKTIwMxmdTU8TW",
-      "label": "Сходить на совет школы и родительское собрание в школе у Мирослава Видутина",
+      "id": "OtD8PngifAbnMYWHBMT0y",
+      "label": "Логопед Мирка",
+      "important": true,
+      "done": true
+    },
+    {
+      "id": "Wi6jJgo7By00MTziTmkXi",
+      "label": "Учеба",
+      "important": true,
+      "done": true
+    },
+    {
+      "id": "SjeAxUcTxsf3-InAB2TW9",
+      "label": "Садик Маргоmgvjgj",
+      "important": false,
+      "done": true
+    },
+    {
+      "id": "J8Ll0rcmSdrAbCqqtjeBq",
+      "label": "jgfjhjhm",
+      "important": true,
+      "done": true
+    },
+    {
+      "id": "0Xu2-fi9w55c504VGVVig",
+      "label": "hgljgjhg",
       "important": false,
       "done": false
     }
