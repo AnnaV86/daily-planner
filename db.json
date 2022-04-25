@@ -1,40 +1,28 @@
 {
   "dailyPlanner": [
     {
-      "id": "KJ2tbiVa4dr7HaB14oVeY",
-      "label": "Улыбнуться",
+      "id": "csTCqUW6fnrcb_XxwXAxp",
+      "label": "Театр",
       "important": false,
       "done": true
     },
     {
-      "id": "OtD8PngifAbnMYWHBMT0y",
-      "label": "Логопед Мирка",
-      "important": true,
-      "done": true
-    },
-    {
-      "id": "Wi6jJgo7By00MTziTmkXi",
-      "label": "Учеба",
-      "important": true,
-      "done": true
-    },
-    {
-      "id": "SjeAxUcTxsf3-InAB2TW9",
-      "label": "Садик Маргоmgvjgj",
-      "important": false,
-      "done": true
-    },
-    {
-      "id": "J8Ll0rcmSdrAbCqqtjeBq",
-      "label": "jgfjhjhm",
-      "important": true,
-      "done": true
-    },
-    {
-      "id": "0Xu2-fi9w55c504VGVVig",
-      "label": "hgljgjhg",
+      "id": "B21Aw81B-DgkP4BcKBJ0z",
+      "label": "Врач",
       "important": false,
       "done": false
+    },
+    {
+      "id": "Ki0uKW5fzhrJs-JsAVqSc",
+      "label": "логопед",
+      "important": true,
+      "done": false
+    },
+    {
+      "id": "LLqbV-6FyMo04WafiaCCT",
+      "label": "улюлюшечка",
+      "important": false,
+      "done": true
     }
   ]
 }

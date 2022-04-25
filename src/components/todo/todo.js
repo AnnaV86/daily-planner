@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
 import './todo.css';
-import { updateTodoFetch } from '../api/dailyPlanner';
+import { editTodoThunk } from '../../store/actions';
 
 const Todo = ({
   todo,
   onDeleteTodo,
   onImportantTodo,
-  onDoneTodo,
-  onSaveEditing,
+  onDoneTodo
 }) => {
   const classSpan = classNames('todo-label', {
     ['todo-label' + ' todo-label_type_active']: todo.important,
@@ -20,15 +20,15 @@ const Todo = ({
   });
   const [inputValue, setInputValue] = useState('');
   const [toggle, setToggle] = useState(true);
+  const dispatch = useDispatch();
 
   const onChangeInputEditingTodo = (event) => {
     setInputValue(event.target.value);
   };
 
-  const onSaveEditingTodo = async () => {
+  const onSaveEditingTodo = () => {
     const newTodo = { ...todo, label: inputValue };
-    await updateTodoFetch(newTodo, todo.id);
-    onSaveEditing();
+    dispatch(editTodoThunk(newTodo, todo.id));
     setToggle(true);
   };
 

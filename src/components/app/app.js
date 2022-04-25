@@ -5,20 +5,18 @@ import SearchPanel from '../search-panel/search-panel';
 import TodoList from '../todo-list/todo-list';
 import AddNewTodo from '../add-new-todo/add-new-todo';
 import { nanoid } from 'nanoid';
-import {
-  getTodoFetch,
-  updateTodoFetch,
-  deleteTodoFetch,
-  addTodoFetch,
-} from '../api/dailyPlanner';
+import { getTodoFetch, addTodoFetch } from '../api/dailyPlanner';
 
 import './app.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   incrementAction,
   getTodoFetchThunk,
+  deleteTodoThunk,
   decrementAction,
   incrementByAmountAction,
+  importantTodoThunk,
+  doneTodoThunk,
 } from '../../store/actions';
 import { counterValue } from '../../selectors/counterSelectors';
 
@@ -29,32 +27,16 @@ export const App = () => {
   const [todos, setTodo] = useState(todosState);
   const [number, setNumber] = useState('');
 
-  const onDeleteTodo = async (id) => {
-    await deleteTodoFetch(id);
-
-    const newTodoList = await getTodoFetch();
-
-    setTodo(newTodoList);
+  const onDeleteTodo = (id) => {
+    dispatch(deleteTodoThunk(id));
   };
 
-  const onImportantTodo = async (todo, id) => {
-    const changedTodoImportant = { ...todo, important: !todo.important };
-
-    await updateTodoFetch(changedTodoImportant, id);
-
-    const newTodoList = await getTodoFetch();
-
-    setTodo(newTodoList);
+  const onImportantTodo = (todo, id) => {
+    dispatch(importantTodoThunk(todo, id));
   };
 
-  const onDoneTodo = async (todo, id) => {
-    const changedTodoDone = { ...todo, done: !todo.done };
-
-    await updateTodoFetch(changedTodoDone, id);
-
-    const newTodoList = await getTodoFetch();
-
-    setTodo(newTodoList);
+  const onDoneTodo = (todo, id) => {
+    dispatch(doneTodoThunk(todo, id));
   };
 
   const addTodo = async (label) => {
@@ -75,12 +57,6 @@ export const App = () => {
     );
 
     setTodo(filteredTodoList);
-  };
-
-  const onSaveEditing = async () => {
-    const newTodoList = await getTodoFetch();
-
-    setTodo(newTodoList);
   };
 
   const onClickIncrement = () => {
@@ -131,7 +107,6 @@ export const App = () => {
         onDeleteTodo={onDeleteTodo}
         onImportantTodo={onImportantTodo}
         onDoneTodo={onDoneTodo}
-        onSaveEditing={onSaveEditing}
       />
       <AddNewTodo addTodo={addTodo} />
       счётчик: {valueState}

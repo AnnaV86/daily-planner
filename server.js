@@ -3,7 +3,7 @@ const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
 
-const PORT = 3011;
+const PORT = 3010;
 const db = router.db.__wrapped__.dailyPlanner;
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
